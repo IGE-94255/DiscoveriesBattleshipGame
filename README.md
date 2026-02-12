@@ -1,4 +1,4 @@
-# Battleship
+# Battleship1
 
 Basic academic version of Battleship game to build upon.
 
