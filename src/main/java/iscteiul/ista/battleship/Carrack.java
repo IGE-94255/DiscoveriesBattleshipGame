@@ -4,7 +4,7 @@ package iscteiul.ista.battleship;
  * Representa uma Nau no jogo da Batalha Naval dos Descobrimentos.
  * A Nau é um navio de dimensão 3 (equivalente ao navio de 3 canhões tradicional)
  * e cada jogador possui 2 destas embarcações na sua frota.
- * * @author andre
+ * * @author aaa
  * @version 1.0
  */
 public class Carrack extends Ship {
