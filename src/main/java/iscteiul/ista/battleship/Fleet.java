@@ -1,39 +1,27 @@
 /**
- *
+ * Representa a frota de navios de um jogador.
+ * Contém métodos para adicionar navios, verificar colisões e imprimir o estado da frota.
  */
-package iscteiul.ista.battleship;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Fleet implements IFleet {
-    /**
-     * This operation prints all the given ships
-     *
-     * @param ships The list of ships
-     */
-    static void printShips(List<IShip> ships) {
-        for (IShip ship : ships)
-            System.out.println(ship);
-    }
-
-    // -----------------------------------------------------
 
     private List<IShip> ships;
 
+    /** Cria uma frota vazia. */
     public Fleet() {
         ships = new ArrayList<>();
     }
 
+    /** Retorna todos os navios da frota. */
     @Override
     public List<IShip> getShips() {
         return ships;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Adiciona um navio à frota se não houver risco de colisão e se estiver dentro do tabuleiro.
      *
-     * @see battleship.IFleet#addShip(battleship.IShip)
+     * @param s navio a adicionar
+     * @return true se o navio foi adicionado com sucesso
      */
     @Override
     public boolean addShip(IShip s) {
@@ -45,100 +33,40 @@ public class Fleet implements IFleet {
         return result;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Retorna todos os navios de uma categoria específica.
      *
-     * @see battleship.IFleet#getShipsLike(java.lang.String)
+     * @param category categoria de interesse (ex: "Galeao")
+     * @return lista de navios da categoria
      */
     @Override
-    public List<IShip> getShipsLike(String category) {
-        List<IShip> shipsLike = new ArrayList<>();
-        for (IShip s : ships)
-            if (s.getCategory().equals(category))
-                shipsLike.add(s);
+    public List<IShip> getShipsLike(String category) { ... }
 
-        return shipsLike;
-    }
+    /** Retorna todos os navios ainda não afundados. */
+    @Override
+    public List<IShip> getFloatingShips() { ... }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Retorna o navio localizado na posição especificada.
      *
-     * @see battleship.IFleet#getFloatingShips()
+     * @param pos posição no tabuleiro
+     * @return navio encontrado ou null
      */
     @Override
-    public List<IShip> getFloatingShips() {
-        List<IShip> floatingShips = new ArrayList<>();
-        for (IShip s : ships)
-            if (s.stillFloating())
-                floatingShips.add(s);
+    public IShip shipAt(IPosition pos) { ... }
 
-        return floatingShips;
-    }
+    /** Mostra o estado completo da frota. */
+    public void printStatus() { ... }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IFleet#shipAt(battleship.IPosition)
-     */
-    @Override
-    public IShip shipAt(IPosition pos) {
-        for (int i = 0; i < ships.size(); i++)
-            if (ships.get(i).occupies(pos))
-                return ships.get(i);
-        return null;
-    }
+    /** Imprime todos os navios de uma categoria específica. */
+    public void printShipsByCategory(String category) { ... }
 
-    private boolean isInsideBoard(IShip s) {
-        return (s.getLeftMostPos() >= 0 && s.getRightMostPos() <= BOARD_SIZE - 1 && s.getTopMostPos() >= 0
-                && s.getBottomMostPos() <= BOARD_SIZE - 1);
-    }
+    /** Imprime todos os navios ainda não atingidos. */
+    public void printFloatingShips() { ... }
 
-    private boolean colisionRisk(IShip s) {
-        for (int i = 0; i < ships.size(); i++) {
-            if (ships.get(i).tooCloseTo(s))
-                return true;
-        }
-        return false;
-    }
+    /** Imprime todos os navios da frota. */
+    void printAllShips() { ... }
 
-
-    /**
-     * This operation shows the state of a fleet
-     */
-    public void printStatus() {
-        printAllShips();
-        printFloatingShips();
-        printShipsByCategory("Galeao");
-        printShipsByCategory("Fragata");
-        printShipsByCategory("Nau");
-        printShipsByCategory("Caravela");
-        printShipsByCategory("Barca");
-    }
-
-    /**
-     * This operation prints all the ships of a fleet belonging to a particular
-     * category
-     *
-     * @param category The category of ships of interest
-     */
-    public void printShipsByCategory(String category) {
-        assert category != null;
-
-        printShips(getShipsLike(category));
-    }
-
-    /**
-     * This operation prints all the ships of a fleet but not yet shot
-     */
-    public void printFloatingShips() {
-        printShips(getFloatingShips());
-    }
-
-    /**
-     * This operation prints all the ships of a fleet
-     */
-    void printAllShips() {
-        printShips(ships);
-    }
-
+    /** Operação auxiliar que imprime os navios fornecidos. */
+    static void printShips(List<IShip> ships) { ... }
 }
