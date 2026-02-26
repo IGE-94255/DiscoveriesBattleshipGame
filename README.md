@@ -12,3 +12,10 @@ Basic academic version of Battleship game to build upon.
 | Navio de 2 canhões    | Caravela      | Caravel   | 2        | 3       |
 | Submarino             | Barca         | Barge     | 1        | 4       |
 
+## Regras de Jogo:
+
+É jogado num tabuleiro (tipicamente 10x10). O sistema de coordenadas é definido por:
+
+      (x,y) ∈ 0, ..., 9 x 0, ..., 9
+
+O impacto dos ataques é calculado pela interseção do vetor do ataque com a hitbox do navio.
