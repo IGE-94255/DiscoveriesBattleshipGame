@@ -25,3 +25,13 @@ Repositório atualizado no ramo `main`.
 | Navio de 2 canhões    | Caravela      | Caravel   | 2        | 3       |
 | Submarino             | Barca         | Barge     | 1        | 4       |
 
+
+## Links sobre os Navios
+
+| Navio                 |Link                                            |
+|-----------------------|------------------------------------------------|
+| Galeão                | https://pt.wikipedia.org/wiki/Gale%C3%A3o      |
+| Fragata               | https://pt.wikipedia.org/wiki/Fragata          |
+| Nau                   | https://pt.wikipedia.org/wiki/Nau              |
+| Caravela              | https://pt.wikipedia.org/wiki/Caravela         |
+| Barca                 | https://pt.wikipedia.org/wiki/Barca            |
