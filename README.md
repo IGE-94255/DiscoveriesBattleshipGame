@@ -2,6 +2,19 @@
 
 Basic academic version of Battleship game to build upon.
 
+# Nickname do Grupo: TP05-2
+# Curso: IGE
+
+## Membros:
+| Número  | Nome            |
+|---------|-----------------|
+| 122983  | Mariana Fonseca |
+| 122991  | Tiago Bexiga    |
+| 123030  | André Ribeiro   |
+| 94255   | Mauro Fortes    |
+
+---
+Repositório atualizado no ramo `main`.
 ## Tipos de Navios – Discoveries Battleship Game
 
 | Batalha Naval         | Descobrimentos | English   | Dimensão | #Navios |
@@ -19,3 +32,13 @@ Basic academic version of Battleship game to build upon.
       (x,y) ∈ 0, ..., 9 x 0, ..., 9
 
 O impacto dos ataques é calculado pela interseção do vetor do ataque com a hitbox do navio.
+
+## Links sobre os Navios
+
+| Navio                 |Link                                            |
+|-----------------------|------------------------------------------------|
+| Galeão                | https://pt.wikipedia.org/wiki/Gale%C3%A3o      |
+| Fragata               | https://pt.wikipedia.org/wiki/Fragata          |
+| Nau                   | https://pt.wikipedia.org/wiki/Nau              |
+| Caravela              | https://pt.wikipedia.org/wiki/Caravela         |
+| Barca                 | https://pt.wikipedia.org/wiki/Barca            |
