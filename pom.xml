@@ -30,6 +30,7 @@
     </dependencyManagement>
 
     <dependencies>
+<<<<<<< tmsba
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -42,6 +43,20 @@
             <version>2.25.2</version>
             <scope>compile</scope>
         </dependency>
+=======
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter</artifactId>
+          <scope>test</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+      <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-core</artifactId>
+          <version>2.25.2</version>
+          <scope>compile</scope>
+      </dependency>
+>>>>>>> main
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
