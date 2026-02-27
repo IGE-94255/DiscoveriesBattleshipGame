@@ -1,3 +1,5 @@
+package iscteiul.ista.battleship;
+
 /**
  * Representa uma Barca no jogo da Batalha Naval dos Descobrimentos.
  * A Barca é o navio mais pequeno do jogo (equivalente ao Submarino tradicional),
