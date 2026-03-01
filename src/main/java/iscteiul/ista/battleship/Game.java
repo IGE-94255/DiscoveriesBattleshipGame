@@ -11,6 +11,10 @@ package iscteiul.ista.battleship;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controla a lógica do jogo da Batalha Naval.
+ * Responsável por gerir os tiros, estatísticas e interagir com a frota.
+ */
 public class Game implements IGame {
 
     /** Frota adversária sobre a qual os tiros são disparados. */
@@ -38,10 +42,12 @@ public class Game implements IGame {
      * @param fleet a frota adversária a ser usada no jogo
      */
     public Game(IFleet fleet) {
-        shots = new ArrayList<>();
-        countInvalidShots = 0;
-        countRepeatedShots = 0;
         this.fleet = fleet;
+        this.shots = new ArrayList<>();
+        this.countInvalidShots = 0;
+        this.countRepeatedShots = 0;
+        this.countHits = 0;
+        this.countSinks = 0;
     }
 
     /**
@@ -75,66 +81,34 @@ public class Game implements IGame {
         return null;
     }
 
-    /**
-     * Devolve a lista de posições onde foram efetuados tiros válidos e não repetidos.
-     *
-     * @return lista de posições dos tiros válidos
-     */
     @Override
     public List<IPosition> getShots() {
         return shots;
     }
 
-    /**
-     * Devolve o número de tiros repetidos efetuados durante o jogo.
-     *
-     * @return número de tiros repetidos
-     */
     @Override
     public int getRepeatedShots() {
-        return this.countRepeatedShots;
+        return countRepeatedShots;
     }
 
-    /**
-     * Devolve o número de tiros inválidos efetuados durante o jogo.
-     *
-     * @return número de tiros inválidos
-     */
     @Override
     public int getInvalidShots() {
-        return this.countInvalidShots;
+        return countInvalidShots;
     }
 
-    /**
-     * Devolve o número total de tiros que acertaram num navio adversário.
-     *
-     * @return número de acertos
-     */
     @Override
     public int getHits() {
-        return this.countHits;
+        return countHits;
     }
 
-    /**
-     * Devolve o número de navios adversários completamente afundados.
-     *
-     * @return número de navios afundados
-     */
     @Override
     public int getSunkShips() {
-        return this.countSinks;
+        return countSinks;
     }
 
-    /**
-     * Devolve o número de navios adversários ainda não afundados.
-     * Quando este valor chega a zero, o jogador venceu o jogo.
-     *
-     * @return número de navios restantes
-     */
     @Override
     public int getRemainingShips() {
-        List<IShip> floatingShips = fleet.getFloatingShips();
-        return floatingShips.size();
+        return fleet.getFloatingShips().size();
     }
 
     /**
@@ -145,8 +119,8 @@ public class Game implements IGame {
      * @return {@code true} se a posição for válida, {@code false} caso contrário
      */
     private boolean validShot(IPosition pos) {
-        return (pos.getRow() >= 0 && pos.getRow() <= Fleet.BOARD_SIZE
-                && pos.getColumn() >= 0 && pos.getColumn() <= Fleet.BOARD_SIZE);
+        return (pos.getRow() >= 0 && pos.getRow() < Fleet.BOARD_SIZE
+                && pos.getColumn() >= 0 && pos.getColumn() < Fleet.BOARD_SIZE);
     }
 
     /**
@@ -156,10 +130,7 @@ public class Game implements IGame {
      * @return {@code true} se o tiro for repetido, {@code false} caso contrário
      */
     private boolean repeatedShot(IPosition pos) {
-        for (int i = 0; i < shots.size(); i++)
-            if (shots.get(i).equals(pos))
-                return true;
-        return false;
+        return shots.contains(pos);
     }
 
     /**
@@ -196,7 +167,7 @@ public class Game implements IGame {
      * marcadas com o caráter '#'.
      */
     public void printFleet() {
-        List<IPosition> shipPositions = new ArrayList<IPosition>();
+        List<IPosition> shipPositions = new ArrayList<>();
         for (IShip s : fleet.getShips())
             shipPositions.addAll(s.getPositions());
         printBoard(shipPositions, '#');
