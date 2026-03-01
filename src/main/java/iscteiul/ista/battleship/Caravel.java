@@ -4,7 +4,7 @@ package iscteiul.ista.battleship;
  * Representa uma Caravela no jogo da Batalha Naval dos Descobrimentos.
  * A Caravela é um navio de dimensão 2 (ocupa 2 quadrados na grelha) e 
  * cada jogador possui 3 destas embarcações na sua frota.
- * * @author [Nome do teu colega que ficou com esta classe]
+ * * @author andre
  * @version 1.0
  */
 public class Caravel extends Ship {
