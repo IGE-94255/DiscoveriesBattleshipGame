@@ -134,7 +134,7 @@ public class Tasks {
 
     /**
      * Tarefa D.
-     * <p>
+     *
      * Implementa o modo completo de jogo, permitindo:
      * <ul>
      *     <li>Construção de frota</li>
@@ -142,7 +142,7 @@ public class Tasks {
      *     <li>Consulta de tiros válidos</li>
      *     <li>Consulta do estado da frota</li>
      * </ul>
-     * </p>
+     *
      */
     public static void taskD() {
 
